@@ -1,7 +1,7 @@
 /*! 
  * angular-loading-bar v0.8.0
  * https://chieffancypants.github.io/angular-loading-bar
- * Copyright (c) 2015 Wes Cruver
+ * Copyright (c) 2016 Wes Cruver
  * License: MIT
  */
 /*
@@ -211,11 +211,11 @@ angular.module('cfp.loadingBar', [])
         $rootScope.$broadcast('cfpLoadingBar:started');
         started = true;
 
-        if (includeBar) {
+        if (includeBar && $parent[0]) {
           $animate.enter(loadingBarContainer, $parent, angular.element($parent[0].lastChild));
         }
 
-        if (includeSpinner) {
+        if (includeSpinner && $parent[0]) {
           $animate.enter(spinner, $parent, angular.element($parent[0].lastChild));
         }
 
